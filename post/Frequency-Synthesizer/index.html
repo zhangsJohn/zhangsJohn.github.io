@@ -1,0 +1,325 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>频率综合器 | zissh</title>
+
+<link rel="shortcut icon" href="https://zhangsJohn.github.io/favicon.ico?v=1619935316373">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhangsJohn.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<style>
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <style>
+    /* 导航栏样式 */
+    .navbar {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-brand {
+        display: inline-block;
+        padding-top: 0.3125rem;
+        padding-bottom: 0.3125rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: inherit;
+        white-space: nowrap;
+    }
+
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+        text-decoration: none;
+    }
+
+    .navbar-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    .navbar-collapse {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .navbar-toggler:hover,
+    .navbar-toggler:focus {
+        text-decoration: none;
+    }
+
+    @media (min-width: 992px) {
+        .navbar-expand-lg {
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .navbar-expand-lg .navbar-nav {
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -ms-flex-preferred-size: auto;
+            flex-basis: auto;
+        }
+
+        .navbar-expand-lg .navbar-toggler {
+            display: none;
+        }
+    }
+
+    @media (max-width: 991px) {
+        #navbarSupportedContent {
+            display: none;
+        }
+    }
+</style>
+<nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            zissh
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="https://home.ustc.edu.cn/~zissh/post/hua-lang" class="menu gt-a-link">
+                    画廊
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1619935316373"
+                action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = function () {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    频率综合器
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2021-05-01 ·
+                    </time>
+                    
+                        <a href="https://zhangsJohn.github.io/tag/S6XhhjNrJ/" class="post-tags">
+                            # EE
+                        </a>
+                    
+                        <a href="https://zhangsJohn.github.io/tag/zpMU2whBu-/" class="post-tags">
+                            # Notes
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="1-为什么需要频率综合">1. 为什么需要频率综合？</h2>
+<p>频率源是电子系统的重要组成部分，许多数字电路都需要高速稳定的时钟信号源进行驱动，比如ADC等器件。而当下随着电子技术发展进步，特别是在通信领域，对高速、高频、快跳变的时钟信源提出了需求，同时还希望信号源具有高分辨（频率跳变步进）、高带宽、低噪声（相噪抖动）等特性。晶振等器件虽然可以提供较高品质的信号，但其频率固定、频段较低（&lt;200MHz），显然不能满足我们的应用需求。</p>
+<blockquote>
+<p>一些常见晶振类型：</p>
+</blockquote>
+<ul>
+<li>XO：Crystal Oscillator，准确度、温漂问题</li>
+<li>VCXO：Voltage Controlled Crystal Oscillator，压控晶振</li>
+<li>TCXO：Temperature Compensated Crystal Oscillator，温补晶振</li>
+<li>OCXO：Oven Controlled Crystal Oscillator，恒温晶体振荡器</li>
+</ul>
+<p><strong>频率合成：</strong> 一个或多个频率稳定度和精确度很高的参考信号源通过各种技术（如DS、PLL、DDS等）途径产生具有与参考源的稳定度和精确度同样或接近的大量离散频率的过程。</p>
+<p>当前的频率合成技术已经得到广泛应用，如在微波通信领域提供快跳变、小步进、高频的本振信号（LO），或在数字系统中提供统一稳定的时钟源（PLL时钟树），支持高速ADC的时钟信号等等。</p>
+<figure data-type="image" tabindex="1"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/%E9%A2%91%E7%8E%87%E5%90%88%E6%88%90%E5%BA%94%E7%94%A8.png" alt="频率合成应用" loading="lazy"></figure>
+<h2 id="2-常见的几种频率综合技术">2、常见的几种频率综合技术</h2>
+<p>对于频率合成，一般会用到一个内部参考频率，信号源输出的信号可以保持这个参考频率的准确度和稳定性，由合成原理不同分为直接合成和间接合成，具体的频率合成方法（主要）可分为三种：直接频率合成法，锁相式频率合成，直接数字合成。</p>
+<h3 id="11-直接频率合成法ds">1.1 直接频率合成法DS：</h3>
+<p>这是一种较早期的频率合成法，是通过对一个或多个固定频率的参考信号进行混频(加减)、倍频(乘)、分频(除)实现频率变换。直接合成法的频率更新速度快，缺点是需要大量的混频、 分频及滤波等设备。</p>
+<figure data-type="image" tabindex="2"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/DS%E7%9B%B4%E6%8E%A5%E9%A2%91%E7%8E%87%E5%90%88%E6%88%90.png" alt="DS直接频率合成" loading="lazy"></figure>
+<h3 id="12-pll">1.2 PLL：</h3>
+<p>现代频率合成技术常应用的方法。锁相环是一种<strong>反馈系统</strong>，通过锁相环(PLL)路将主振源的频率直接反馈或者分频后再反馈，并与参考频率源做对比，<strong>让反馈频率与参考频率相等，相位差稳定保持不变</strong>。锁相式频率合成的优点是所需的硬件设备少，可靠性高，频率范围宽。但由于锁相需要一定的稳定时间，因此频率更新速度较慢。</p>
+<figure data-type="image" tabindex="3"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/PLL%E6%A8%A1%E5%9E%8B.jpg.png" alt="PLL模型.jpg" loading="lazy"></figure>
+<p>如上图所示，输入信号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mrow><mi>R</mi><mi>E</mi><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">F_{REF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>与反馈信号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><msub><mi>F</mi><mn>0</mn></msub><mi>N</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac {F_0} N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.233431em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8884309999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:-0.13889em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>通过ERROR DETECTOR进行比较，当两者相位和频率存在差异时（电荷泵CP）将产生一个调整电流<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mrow><mi>c</mi><mi>p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">I_{cp}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，该电流经过环路滤波电路产生一个调整电压，该电压作用到VCO上对VCO的输出信号相位频率进行调整，使得反馈信号与参考信号进行相位和频率同步，我们称这个过程叫做相位捕获或锁定，最后输出的信号与参考信号保持相位同步：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mn>0</mn></msub><mo>=</mo><mi>N</mi><mo>×</mo><msub><mi>F</mi><mrow><mi>R</mi><mi>E</mi><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">F_0 = N \times F_{REF}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="121-pfd鉴频鉴相器与电荷泵cp">1.2.1 PFD鉴频鉴相器与电荷泵CP</h4>
+<p>在PLL中，十分关键的一个部件叫做鉴相器PD，用于比较参考信号和反馈信号之间的<strong>相位差异</strong>，以产生反馈调整信号。下图为一种典型的具有电荷泵CP的鉴相电路结构。因为可以同时比较相位和频率，又叫做PFD。<br>
+<img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/PFD%E4%B8%8E%E7%94%B5%E8%8D%B7%E6%B3%B5.jpg.png" alt="PFD与电荷泵.jpg" loading="lazy"></p>
+<p>该电路结构主要包含两个DFF、两个电流源、一个与门和延迟单元。</p>
+<p>当UP端对应的DFF产生一个高电平输出，而DOWN端输出低电平，将驱动CP产生一个正向电流脉冲。CP具体的输出与DFF的UP和DOWN输出对应关系可见左下角真值表。</p>
+<p>当输入参考信号＋IN与反馈信号－IN存在频率差异时，如右上角所示，参考信号频率高于反馈信号，则输出电流大部分时间为正向电流，这将促使VCO信号频率提高，即使得－IN的反馈输入信号与＋IN频率同步，这就是<strong>鉴频</strong>过程。</p>
+<p>当＋IN与－IN的频率接近相位存在差异时，如图右中所示，＋IN端信号相位超前，将输出离散的正向短脉冲，这将使得－IN的相位被拉前与＋IN同步，这是<strong>鉴相</strong>过程。</p>
+<p>同时，考虑到电CP电路等存在的延迟（如电流的开启关闭需要一定的保持时间），引入延迟单元保证UP/DOWN信号的足够宽度以避免死区的出现。</p>
+<h4 id="122-压控振荡器vco">1.2.2 压控振荡器VCO</h4>
+<p>VCO为PLL电路输出信号的直接来源，鉴相器PFD的误差调节电流<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mrow><mi>c</mi><mi>p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">I_{cp}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>通过环路滤波输出调整电压作用到VCO上产生最终的输出信号，我们可以简单的认为调整电压<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>u</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">u_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>与VCO的输出信号频率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>ω</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\omega_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>之间为一种线性关系。VCO的具体原理可以参见下图一个典型电路示意：</p>
+<figure data-type="image" tabindex="4"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/VCO%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F.png" alt="VCO结构示意" loading="lazy"></figure>
+<p>如图示，反馈调整电压<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>u</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">u_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>首先转化为电流，在SR锁存器的控制下，电容C两端的PMOS与NMOS结构交替关闭打开，电流对C进行充放电，C两端电压通过斯密特触发器，又反馈作用到SR锁存器，最终SR锁存器输出信号为一个周期方波，频率与充放电的快慢（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>u</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">u_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>大小有关）相联系，实现了电压控制振荡输出。</p>
+<h3 id="13-ddsdirect-digital-synthesizer">1.3 DDS(Direct Digital Synthesizer)：</h3>
+<p>采用全数字技术，基于采样定理和查找表的形式，直接合成所需波形。我们知道采样的过程就是将模拟信号离散数字化，而DDS(Direct Digital Synthesizer)可以视为其逆过程，即将离散的数字波形数据（相位-幅度点）存储在ROM中，通过数字信号控制相位（幅度存储地址）变化，输出对应的幅度点，而相位变化的不同速度就对应各种不同的频率，最后再通过DAC和LPF实现信号输出。与其他传统的频率合成器相比，DDS的突出优点是<strong>频率分辨率极高</strong>，在保证相位连续的情况下可以实现快速的频率转换，数字化控制精确度高。</p>
+<figure data-type="image" tabindex="5"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/DDS%E4%B8%8E%E9%87%87%E6%A0%B7%E5%AE%9A%E7%90%86.png" alt="DDS与采样定理" loading="lazy"></figure>
+<p>如上图，对于一个正弦信号，我们按照波形的相位顺序存储其一个周期的数据点（实际只需要存储1/4个周期，90°），存储深度（采样数据点数目<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>）决定了DDS的分辨率（频率跳变步进<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mi mathvariant="normal">/</mi><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">f_c/2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>）。信号输出时通过改变每次读取的相位点的间隔M我们可以控制输出的信号频率：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mn>0</mn></msub><mo>=</mo><mfrac><mrow><mi>M</mi><mo>×</mo><msub><mi>f</mi><mi>c</mi></msub></mrow><msup><mn>2</mn><mi>n</mi></msup></mfrac></mrow><annotation encoding="application/x-tex">f_0=\frac{M\times f_c}{2^n}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.0574399999999997em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.590392em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>同时，由采样定理，我们可以知道输出信号的频率不能大于参考信号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">f_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的一半。</p>
+<figure data-type="image" tabindex="6"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/DDS%E5%8E%9F%E7%90%86%E6%A1%86%E5%9B%BE.png" alt="DDS原理框图" loading="lazy"></figure>
+<h2 id="3-一个典型的应用设计">3、一个典型的应用设计</h2>
+<p>对于频率综合，如果想要实现高分辨、快跳变、高频高带宽的频率输出，一种设计思路便是结合PLL和DDS两种技术，即用PLL提供一个固定的高频参考信号供给DDS电路，再通过DDS进行输出：</p>
+<figure data-type="image" tabindex="7"><img src="https://zhangs-1302022941.cos.ap-chengdu.myqcloud.com/blog_pics/PLL_DDS_400M.png" alt="PLL_DDS_400M" loading="lazy"></figure>
+<p>如上图，采用10M的TCXO晶振，利用PLL芯片ADF4350输出固定1GHz参考供给DDS芯片AD9858，最终通过AD9858实现0-400M的变频输出。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">积少成多，温故知新</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zhangsJohn.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
